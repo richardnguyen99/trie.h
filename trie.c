@@ -9,6 +9,16 @@ struct word_node *mktrie()
 {
     struct word_node *dict = NULL;
 
+    dict = (struct word_node *)malloc(sizeof(struct word_node));
+
+    if (!dict)
+        return dict;
+
+    for (int i = 0; i < ALPHABET_SIZE; ++i)
+        dict->node[i] = NULL;
+
+    dict->eow = 0;
+
     return dict;
 }
 
