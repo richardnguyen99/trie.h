@@ -39,8 +39,9 @@ struct word_node *mktrie();
  * @param trie An existing trie
  * @param word A given word
  * @return On success, it returns 1 meaning the word has been appened to the
- * lists. If the word is already existing, 0 is returned instead. If there is
- * an error happening, -1 is returned instead.
+ * lists. If no new word has been added, 0 is returned instead. If the word
+ * contains an invalid character that is not in the English alphabet, -1 is
+ * returned instead. If there is an error happening, -2 is returned instead.
  */
 int add(struct word_node *trie, char *word);
 

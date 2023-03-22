@@ -12,15 +12,12 @@ struct word_node *make_trie()
 int main(void)
 {
     struct word_node *trie = NULL;
-
     assert((trie == NULL));
 
     trie = make_trie();
-
     assert((trie != NULL));
 
     struct word_node *tries[100];
-
     for (int i = 0; i < 100; ++i)
     {
         tries[i] = make_trie();

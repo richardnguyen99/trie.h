@@ -16,6 +16,7 @@ add_subdirectory(test)
 add_test(NAME dummy-trie-test-1 COMMAND trie-test)
 add_test(NAME dummy-trie-test-2 COMMAND trie-test-two)
 add_test(NAME trie-test-mktrie COMMAND trie-make)
+add_test(NAME trie-test-add COMMAND trie-add)
 
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

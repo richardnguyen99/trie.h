@@ -12,3 +12,7 @@ target_link_libraries(trie-test-two trie)
 add_executable(trie-make mktrie.c)
 target_include_directories(trie-make PRIVATE ${CMAKE_SOURCE_DIR})
 target_link_libraries(trie-make trie)
+
+add_executable(trie-add addtrie.c)
+target_include_directories(trie-add PRIVATE ${CMAKE_SOURCE_DIR})
+target_link_libraries(trie-add trie)

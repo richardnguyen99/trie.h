@@ -1,4 +1,10 @@
 #include "trie.h"
+#include <string.h>
+
+int ord(char c)
+{
+    return (int)c - (int)'a';
+}
 
 int dummy()
 {
@@ -26,6 +32,34 @@ int add(struct word_node *trie, char *word)
 {
     if (!trie)
         return 0;
+
+    size_t n = strlen(word);
+
+    if (n == 0)
+        return 0;
+
+    for (size_t i = 0; i < n; ++i)
+    {
+        int alphabet_order = ord(word[i]);
+
+        if (alphabet_order < 0 || alphabet_order > 25)
+            return -1;
+
+        if (trie->node[alphabet_order] == NULL)
+            trie->node[alphabet_order] = mktrie();
+
+        // If the trie->node[i] is still NULL, there was an error happening
+        // during allocation.
+        if (trie->node[alphabet_order] == NULL)
+            return -2;
+
+        trie = trie->node[alphabet_order];
+    }
+
+    if (trie->eow == 1)
+        return 0;
+
+    trie->eow = 1;
 
     return 1;
 }
