@@ -66,10 +66,28 @@ int add(struct word_node *trie, char *word)
 
 int search(struct word_node *trie, char *word)
 {
-    if (!trie)
-        return 0;
+    size_t n = strlen(word);
 
-    return 1;
+    if (!trie || n == 0)
+        return -1;
+
+    for (int i = 0; i < n; ++i)
+    {
+        int alphabet_order = ord(word[i]);
+
+        if (alphabet_order < 0 || alphabet_order > 25)
+            return -1;
+
+        if (trie->node[alphabet_order] == NULL)
+            return 0;
+
+        trie = trie->node[alphabet_order];
+
+        if (trie == NULL)
+            return -2;
+    }
+
+    return (trie->eow);
 }
 
 int delete(struct word_node *trie, char *word)

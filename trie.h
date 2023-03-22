@@ -51,7 +51,9 @@ int add(struct word_node *trie, char *word);
  * @param trie An existing trie
  * @param word A given word
  * @return On success, it returns 1 meaning the word has been found. If the word
- * is not there, 0 is returned instead. If there is an error, -1 is returned.
+ * is not there, 0 is returned instead. If there is an invalid syntax such as
+ * empty trie, empty string, invalid characters, -1 is returned. If there is an
+ * error, -2 is returned.
  */
 int search(struct word_node *trie, char *word);
 
