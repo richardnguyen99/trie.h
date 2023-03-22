@@ -13,7 +13,8 @@ target_link_libraries(main PRIVATE trie)
 
 add_subdirectory(test)
 
-add_test(NAME trie-test COMMAND trie-test)
+add_test(NAME dummy-trie-test-1 COMMAND trie-test)
+add_test(NAME dummy-trie-test-2 COMMAND trie-test-two)
 
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
