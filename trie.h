@@ -4,4 +4,6 @@
 #include <stddef.h>
 #include <stdlib.h>
 
+int dummy();
+
 #endif

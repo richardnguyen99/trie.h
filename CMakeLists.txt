@@ -4,7 +4,17 @@ project(trie.h VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-add_executable(trie main.c)
+include_directories(${CMAKE_SOURCE_DIR})
+
+add_library(trie OBJECT trie.c)
+
+add_executable(main main.c)
+target_link_libraries(main PRIVATE trie)
+
+add_subdirectory(test)
+
+add_test(NAME trie-test COMMAND trie-test)
+
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
