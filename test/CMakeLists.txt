@@ -20,3 +20,7 @@ target_link_libraries(trie-add trie)
 add_executable(trie-search searchtrie.c)
 target_include_directories(trie-search PRIVATE ${CMAKE_SOURCE_DIR})
 target_link_libraries(trie-search trie)
+
+add_executable(trie-delete deltrie.c)
+target_include_directories(trie-delete PRIVATE ${CMAKE_SOURCE_DIR})
+target_link_libraries(trie-delete trie)
